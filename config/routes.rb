@@ -1,4 +1,6 @@
 Ymastree::Application.routes.draw do
+  resources :microposts
+
   resources :users
 
   get "home/index"
