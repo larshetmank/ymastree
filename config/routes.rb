@@ -1,11 +1,16 @@
 Ymastree::Application.routes.draw do
+  
   resources :microposts
 
   resources :users
+  
+  resources :sessions, :only => [:new, :create, :destroy]
 
   get "home/index"
   
   match '/signup',  :to => 'users#new'
+  match '/signin',  :to => 'sessions#new'
+  match '/signout', :to => 'sessions#destroy'
   
   
   # The priority is based upon order of creation:
