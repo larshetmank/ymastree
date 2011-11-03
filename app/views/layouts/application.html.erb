@@ -1,14 +1,45 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Ymastree</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
-
-<%= yield %>
-
-</body>
+  <head>
+    <title>Ymastree</title>
+    <%= stylesheet_link_tag :all %>
+    <%= javascript_include_tag :defaults %>
+    <%= csrf_meta_tag %> <!--[if lt IE 9]>
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+  </head>
+  <body>
+    <div>
+      <header>
+        <h1>YmasTree</h1>
+        <h2>Starting on December 1st</h2>
+        <%= image_tag("logo.png", :alt => "Sample App", :class => "round") %>
+      </header>
+      <nav>
+        <ul>
+          <li>
+            <%= link_to "Home", "/" %>
+          </li>
+          <li>
+            <%= link_to "Why mess up a Christmas Tree?", '#' %>
+          </li>
+          <li>
+            <%= link_to "About Me", '#' %>
+          </li>
+          <li>
+            <%= link_to "Sign In", '#' %>
+          </li>
+        </ul>
+      </nav>
+      <section>
+        <%= yield %>
+      </section>
+      <footer>
+        <p>
+          &copy; Copyright 2011 by YmasTree
+          <%= debug(params) if Rails.env.development? %>
+        </p>
+      </footer>
+    </div>
+  </body>
 </html>
